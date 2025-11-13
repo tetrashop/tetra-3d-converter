@@ -1,0 +1,24 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# : << 'EOF'
+# بررسی منابع سیستم
+
+echo "🖥️  بررسی منابع سیستم Tetra..."
+
+echo "📊 حافظه:"
+free -h
+
+echo "💾 فضای دیسک:"
+df -h ~/tetra-ecosystem/
+
+echo "🔢 پردازنده:"
+nproc
+
+echo "🐍 نسخه پایتون:"
+python3 --version
+
+echo "📦 کتابخانه‌های نصب شده:"
+pip list | grep -E "numpy|Pillow|psutil"
+
+echo "✅ بررسی کامل شد"
+
+# EOF

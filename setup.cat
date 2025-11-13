@@ -1,0 +1,45 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# : << 'EOF'
+# فایل راه‌اندازی Tetra 3D Converter
+
+echo "🔄 در حال راه‌اندازی Tetra 3D Converter..."
+
+# بررسی وجود پایتون
+if ! command -v python3 &> /dev/null; then
+    echo "📥 نصب پایتون..."
+    pkg update && pkg install python -y
+fi
+
+# بررسی ساختار پوشه‌ها
+if [ ! -d "~/tetra-ecosystem/tetra-3d-converter" ]; then
+    echo "📁 ایجاد ساختار پوشه‌ها..."
+    mkdir -p ~/tetra-ecosystem/tetra-3d-converter/{src,utils,models,output}
+fi
+
+# حذف پوشه تکراری اگر وجود دارد
+if [ -d "~/tetra-ecosystem/tetra-3d-converter/tetra-3d-converter" ]; then
+    echo "🗑️ حذف پوشه تکراری..."
+    rm -rf ~/tetra-ecosystem/tetra-3d-converter/tetra-3d-converter
+fi
+
+# کپی فایل‌ها
+echo "📦 کپی فایل‌های پروژه..."
+cp main.py ~/tetra-ecosystem/tetra-3d-converter/
+cp -r utils ~/tetra-ecosystem/tetra-3d-converter/
+cp requirements.txt ~/tetra-ecosystem/tetra-3d-converter/
+
+# نصب کتابخانه‌های مورد نیاز
+echo "📚 نصب کتابخانه‌های پایتون..."
+cd ~/tetra-ecosystem/tetra-3d-converter
+pip install -r requirements.txt
+
+# دادن مجوز اجرا
+chmod +x main.py
+chmod +x utils/*.py
+
+echo "✅ راه‌اندازی کامل شد!"
+echo "📝 برای استفاده:"
+echo "   cd ~/tetra-ecosystem/tetra-3d-converter"
+echo "   python main.py input.jpg output.obj"
+
+# EOF

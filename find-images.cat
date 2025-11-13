@@ -1,0 +1,29 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# : << 'EOF'
+# اسکریپت پیدا کردن تصاویر در حافظه
+
+echo "🔍 در حال جستجوی تصاویر..."
+
+# بررسی آیا storage تنظیم شده است
+if [ ! -d ~/storage ]; then
+    echo "📱 لطفا ابتدا دسترسی حافظه را فعال کنید:"
+    echo "   termux-setup-storage"
+    exit 1
+fi
+
+echo "📁 تصاویر موجود در Downloads:"
+find ~/storage/downloads -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | head -10
+
+echo ""
+echo "📁 تصاویر موجود در Pictures:"
+find ~/storage/pictures -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | head -10
+
+echo ""
+echo "📁 تصاویر موجود در DCIM (دوربین):"
+find ~/storage/dcim -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | head -10
+
+echo ""
+echo "💡 برای استفاده:"
+echo "   ./convert.cat ~/storage/pictures/photo.jpg output.obj"
+
+# EOF

@@ -1,0 +1,37 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# : << 'EOF'
+# اسکریپت تبدیل تصویر به مدل 3D
+
+echo "🎯 شروع تبدیل تصویر به مدل 3D"
+
+# بررسی آرگومان‌ها
+if [ $# -lt 2 ]; then
+    echo "⚠️  استفاده: ./convert.cat <ورودی.jpg> <خروجی.obj>"
+    exit 1
+fi
+
+INPUT_FILE=$1
+OUTPUT_FILE=$2
+
+# بررسی وجود فایل ورودی
+if [ ! -f "$INPUT_FILE" ]; then
+    echo "❌ فایل ورودی پیدا نشد: $INPUT_FILE"
+    exit 1
+fi
+
+# تغییر مسیر به دایرکتوری پروژه
+cd ~/tetra-ecosystem/tetra-3d-converter
+
+# اجرای تبدیل
+echo "🔮 در حال تبدیل $INPUT_FILE به $OUTPUT_FILE ..."
+python main.py "$INPUT_FILE" "output/$OUTPUT_FILE"
+
+if [ $? -eq 0 ]; then
+    echo "✅ تبدیل با موفقیت انجام شد!"
+    echo "📁 فایل خروجی: output/$OUTPUT_FILE"
+else
+    echo "❌ خطا در تبدیل"
+    exit 1
+fi
+
+# EOF
