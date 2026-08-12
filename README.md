@@ -1,13 +1,46 @@
-# Tetra 3D Converter - سیستم تبدیل تصویر به مدل سه بعدی
+# Tetra 3d Converter
 
-یک سیستم پیشرفته برای تبدیل تصاویر دو بعدی به مدل‌های سه بعدی با استفاده از فرمول ریاضی اختصاصی.
+## 📋 درباره پروژه
+این پروژه بخشی از اکوسیستم **TetraShop** است.
 
-## ویژگی‌ها
-- تبدیل تصاویر 2D به مدل‌های 3D
-- استفاده از فرمول ریاضی مخترع
-- سیستم چند دوربینی مجازی
-- بهینه‌سازی برای منابع محدود
+- **نوع:** PYTHON
+- **تعداد فایل‌ها:** 13
 
-## نحوه استفاده
+## 🚀 ویژگی‌ها
+- کد تمیز و بهینه
+- آماده برای توسعه
+- پشتیبانی از آخرین تکنولوژی‌ها
+
+## 📦 نصب و راه‌اندازی
+
+### پیش‌نیازها
+- Python 3.8+
+
+### نصب
 ```bash
-python main.py input.jpg output.obj
+git clone https://github.com/tetrashop/tetra-3d-converter.git
+cd tetra-3d-converter
+pip install -r requirements.txt
+```
+
+## 🔧 استفاده
+```bash
+python main.py
+```
+
+## 🤝 مشارکت
+1. Fork کنید
+2. Branch جدید: `git checkout -b feature/your-feature`
+3. Commit: `git commit -m 'Add feature'`
+4. Push: `git push origin feature/your-feature`
+5. Pull Request باز کنید
+
+## 📝 مجوز
+MIT License
+
+## 🌐 ارتباط با ما
+- **وبسایت:** [tetrashop.ir](https://tetrashop.ir)
+- **گیت‌هاب:** [github.com/tetrashop](https://github.com/tetrashop)
+
+---
+**آخرین به‌روزرسانی:** 2026-08-12
