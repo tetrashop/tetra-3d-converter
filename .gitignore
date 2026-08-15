@@ -23,3 +23,5 @@ coverage.xml
 *.png
 test_image.jpg
 sample.jpg
+.vercel
+.env*
